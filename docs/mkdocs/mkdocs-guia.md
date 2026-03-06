@@ -1,3 +1,11 @@
+# Guia de uso Material MkDocs
+
+## Referenciar outra pagina:
+```md
+[nomedapagina](/mkdocs/mkdocs-guia/)
+```
+
+## Blocos de codigo
 ``` py
 # Function to add two numbers
 def add_two_numbers(num1, num2):
@@ -15,6 +23,10 @@ select * from map_produto p
 where 1=1
 and p.seqproduto = 6044
 ```
+
+[botao](#caixas){ .md-button .md-button--primary }
+
+---
 
 Sanfona
 
