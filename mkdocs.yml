@@ -17,5 +17,13 @@ theme:
         name: Modo noturno
       accent: deep orange
 
+  features:
+    - content.code.copy
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.path
+    - toc.integrate
+    - navigation.top
+
 nav:
   - Início: index.md
