@@ -1,22 +1,35 @@
-# Welcome to MkDocs
+# INÍCIO
 
-For full documentation visit [mkdocs.org](https://www.mkdocs.org).
+## 👋 Bem-vindo, eu mesmo 😂
 
-## Commands
+## Finalidade
 
-* `mkdocs new [dir-name]` - Create a new project.
-* `mkdocs serve` - Start the live-reloading docs server.
-* `mkdocs build` - Build the documentation site.
-* `mkdocs -h` - Print help message and exit.
+Esse portal de documentação e conhecimento foi desenvolvido para centralizar todo o meu conhecimento como um segundo cérebro.
 
-## Project layout
+## Orientação desse portal
 
-    mkdocs.yml    # The configuration file.
-    docs/
-        index.md  # The documentation homepage.
-        ...       # Other markdown pages, images and other files.
+* As guias são separadas por tipo de tecnologia
 
-``` sql
-select * from tabela a
-where a.produto = 1;
-```
+* Os tipos de tecnologia são:
+    
+    - **Aprendizado** - Anotações de cursos, aulas, livros e descobertas
+    - **Trechos** - Códigos reutilizáveis
+    - **Erros** - Problemas que eu resolvi                
+    - **Conceitos** - Explicações importantes
+    - **Projetos** = Coisas que eu contruí
+
+## Documentacao de uso
+Guia Markdown
+[Aqui](https://www.markdownguide.org/basic-syntax/)
+
+Material for MkDocs
+[Aqui](https://squidfunk.github.io/mkdocs-material/reference/)
+
+MkDocs Padrao
+[Aqui](https://www.mkdocs.org/)
+
+Fluxograma open-source
+[Aqui](https://mermaid.js.org/)
+
+## Exemplos de usabilidade desse portal
+[Aqui](/mkdocs/mkdocs-guia/)
