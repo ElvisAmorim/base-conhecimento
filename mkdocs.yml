@@ -3,6 +3,19 @@ site_name: Portal do Conhecimento
 theme:
   name: material
   language: pt-BR
+  palette:
+    # Modo Dark
+    - scheme: slate
+      toggle:
+        icon: material/weather-sunny
+        name: Modo claro
+      accent: deep purple
+
+    - scheme: default
+      toggle:
+        icon: material/weather-night
+        name: Modo noturno
+      accent: deep orange
 
 nav:
   - Início: index.md
