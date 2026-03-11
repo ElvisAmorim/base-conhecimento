@@ -1,0 +1,8 @@
+site_name: Portal do Conhecimento
+
+theme:
+  name: material
+  language: pt-BR
+
+nav:
+  - Início: index.md
