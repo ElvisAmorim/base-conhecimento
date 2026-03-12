@@ -27,6 +27,15 @@ and p.seqproduto = 6044
 [botao](#caixas){ .md-button .md-button--primary }
 
 ---
+teclas
+
+```
+++ctrt+v++
+```
+
+++ctrl+v++
+
+---
 
 Sanfona
 
