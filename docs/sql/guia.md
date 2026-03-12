@@ -2,37 +2,26 @@
 encryptcontent: true
 password: suasenha123
 ---
-
-
-## Conceitos
-### Formatar campos
-[Link](HTTP://PGDOCPTBR.SOURCEFORGE.NET/PG80/FUNCTIONS-FORMATTING.HTML)
-
-
 ## Consultas
 
-#### Consultar tabelas
-``` sql
+###  Encontrar tabelas
+📌 Encontrar tabela do banco
+```sql
 SELECT * FROM ALL_TAB_COLUMNS 
 WHERE TABLE_NAME LIKE '%NomeDaTabela%'
 AND OWNER IN 'owner';
 ```
 
-### Consultar colunas das tabelas
-``` sql
+### Encontrar colunas
+📌 Encontrar colunas de todas as tabelas do banco
+```sql
 SELECT * FROM ALL_TAB_COLUMNS 
 WHERE COLUMN_NAME LIKE '%SAZ%'
 AND OWNER = 'owner';
 ```
 
-### Consultar jobs
-```sql
-SELECT A.JOB, A.NEXT_DATE, A.WHAT, A.* FROM ALL_JOBS A
-WHERE 1=1
-AND A.NEXT_DATE <= '21-nov-2021';
-```
-
-### Contacter / Juntar valores
+### Concatenar / Juntar valores
+📌 Mostrar única linha com valores distintos
 ```sql
 SELECT PC.SEQPRODUTO,
        LISTAGG(PC.CODACESSO, ',') WITHIN GROUP(ORDER BY PC.CODACESSO) CODIGOS
@@ -43,7 +32,9 @@ SELECT PC.SEQPRODUTO,
    AND PC.SEQPRODUTO = 82
  GROUP BY PC.SEQPRODUTO;
 ```
+
 Resultado
+
 === "Antes"
 
     |SEQPRODUTO|CODACESSO|
@@ -58,8 +49,9 @@ Resultado
     |82|7898279792534,7898591450020|
 
 
+### Contar registros com critério específico
+📌 Encontrar X registros de um filtro
 
-### Conta-se com criterios
 ```sql
 SELECT B.SEQFAMILIA, B.FAMILIA
   FROM MAD_LISTAITEM A, MAP_FAMILIA B, MAD_LISTA D
@@ -75,7 +67,22 @@ SELECT B.SEQFAMILIA, B.FAMILIA
   GROUP BY B.SEQFAMILIA, B.FAMILIA;
 ```
 
-### Valor exclusivo
+=== "Antes"
+    |SEQFAMILIA|FAMILIA|
+    |----------|-------|
+    |3448|EXCLUIR|
+    |3448|EXCLUIR|
+    |3448|EXCLUIR|
+
+
+=== "Depois"
+    |SEQFAMILIA|FAMILIA|
+    |----------|-------|
+    |3448|EXCLUIR|
+
+
+### Valores associados exclusivos
+📌 Quantidade de registro associados a um filtro
 ```sql
 SELECT COUNT(A.SEQPESSOA), A.NROSEGMENTO
   FROM MRL_CLIENTESEG A
@@ -95,13 +102,26 @@ SELECT *
        FROM (SELECT A.SEQPRODUTO, A.NROEMPRESA, A.STATUSCOMPRA
              FROM CONSINCO.MRL_PRODUTOEMPRESA A
              WHERE 1=1
-             AND A.NROEMPRESA IN (2,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20)
+             AND A.NROEMPRESA IN (201,202,203)
              AND A.SEQPRODUTO = 1)
-       PIVOT (MAX(STATUSCOMPRA) FOR NROEMPRESA IN (2,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20))
-ORDER BY 2;
-
+       PIVOT (MAX(STATUSCOMPRA) FOR NROEMPRESA IN (201,202,203))
+;
 ```
-### Formacao de data como texto e ano
+=== "Antes"
+    |SEQPRODUTO|NROEMPRESA|STATUSCOMPRA|
+    |----------|----------|------------|
+    |9015|201|A|
+    |9015|202|I|
+    |9015|203|I|
+
+
+=== "Depois"
+    |SEQPRODUTO|201|202|203|
+    |----------|---|---|---|
+    |9015|A|I|I|
+
+
+### Formatar data como mês por extenso em português e o ano
 ```sql
 SELECT TRIM(TO_CHAR(EP.DATA, 'MONTH', 'NLS_DATE_LANGUAGE=PORTUGUESE')) || '/' ||
        TO_CHAR(EP.DATA, 'YYYY') MES,
@@ -117,86 +137,87 @@ SELECT TRIM(TO_CHAR(EP.DATA, 'MONTH', 'NLS_DATE_LANGUAGE=PORTUGUESE')) || '/' ||
  WHERE 1 = 1
    AND EP.PROCESSO = C.PROCESSO_ID
    AND EP.DATA >= '01-JAN-2024'
-
 ```
-### Aggrupar valores como meses e ano
+=== "Antes"
+    |MES|
+    |---|
+    |01/2024|
+    |02/2024|
+
+=== "Depois"
+    |MES|
+    |---|
+    |JANEIRO/2024|
+    |FEVEREIRO/2024|
+
+### Formatar data para mes/ano numerico
+📌 Agrupar os registro por mes e ano sem precisar por dia a dia
 ```sql
 SELECT TO_CHAR(FV.DTAOPERACAO, 'MM/YY') AS MÊS,
        FV.SEQPRODUTO,
        P.PRODUTO,
        SUM(FV.QTDOPERACAO) AS QUANTIDADE
-  FROM FATO_VENDA FV
-       JOIN DIM_PRODUTO P ON FV.SEQPRODUTO = P.SEQPRODUTO
+  FROM consincodw.FATO_VENDA FV
+       JOIN consincodw.DIM_PRODUTO P ON FV.SEQPRODUTO = P.SEQPRODUTO
  WHERE FV.NROEMPRESA = 215
-   AND FV.SEQPRODUTO IN (6044, 17915, 18864, 26275, 87005)
-   AND FV.DTAOPERACAO >= TO_DATE('29-sep-2025', 'DD-MON-YYYY')
-   and fv.seqproduto = 6044
+   AND FV.SEQPRODUTO IN (17915)
+   AND fv.DTAOPERACAO = '10-mar-2026'
 GROUP BY TO_CHAR(FV.DTAOPERACAO, 'MM/YY'), FV.SEQPRODUTO, P.PRODUTO
-ORDER BY TO_CHAR(FV.DTAOPERACAO, 'MM/YY'), FV.SEQPRODUTO;
-```
-
-### Ano atual vs ano anterior
-Mes corrido
-```sql
-SELECT DISTINCT FV.SEQPRODUTO, FV.DTAOPERACAO
-FROM FATO_VENDA FV
-WHERE 1=1
-AND FV.NROEMPRESA IN (111,224)
-AND FV.SEQPRODUTO = 6044
-AND FV.DTAOPERACAO BETWEEN ADD_MONTHS(SYSDATE - 90, -12) AND ADD_MONTHS(SYSDATE, -12)
 ;
 ```
-ou
-``` sql
-SELECT FV.DTAOPERACAO,
-       FV.NROEMPRESA,
-       FV.SEQCLIENTE,
-       --E.EMPRESA,
-       ROUND(SUM(FV.VVLROPERACAOBRUTO),0) AS VLRTOTAL,
-       ROUND(SUM(FV.VVLRCTOLIQUIDO),0) AS VLRCUSTOLIQ,
-       ROUND(SUM(FV.VLRICMS),0) AS VLRICMS,
-       ROUND(SUM(FV.VLRFCPICMS),0) AS VLRFCPICMS,
-       ROUND(SUM(FV.VLRPIS),0) AS VLRPIS,
-       ROUND(SUM(FV.VLRCOFINS),0) AS VLRCOFINS,
-       ROUND(SUM(FV.VLRCUSTOFISCAL),0) AS VLRCUSTOFIS
 
-  FROM CONSINCODW.FATO_VENDA            FV,
-       CONSINCODW.BART_CGO_INTERCOMPANY C
- WHERE 1 = 1
-   AND FV.CODGERALOPER = C.CODGERALOPER
-   AND FV.DTAOPERACAO BETWEEN TO_DATE('01/01' || (EXTRACT(YEAR FROM SYSDATE) - 1), 'DD/MM/YYYY') -- ANO ANTERIOR COMPLETO
-   AND SYSDATE
-   AND FV.NROEMPRESA in (1, 25, 211)
-   AND FV.NROSEGMENTO in (2, 3, 11)
-   AND FV.SEQCLIENTE IN (111,224)
- GROUP BY FV.NROEMPRESA, SEQCLIENTE, FV.DTAOPERACAO;
-```
-Mes ano fechado
-``` sql
-SELECT DISTINCT FV.SEQPRODUTO, FV.DTAOPERACAO
-FROM FATO_VENDA FV
-WHERE 1=1
-AND FV.NROEMPRESA IN (111,224)
-AND FV.SEQPRODUTO = 6044
-AND FV.DTAOPERACAO BETWEEN ADD_MONTHS(TRUNC(SYSDATE, 'YEAR') + INTERVAL '7' MONTH, -24) 
-AND ADD_MONTHS(SYSDATE, -12)
+|MÊS|SEQPRODUTO|PRODUTO|QUANTIDADE|
+|---|----------|-------|----------|
+|03/26|17915|ABACATE KG GRANEL|30.855|
+
+### Últimos X dias do mesmo período do ano passado
+
+📌 Precise dos 90 dias do mesmo periodo do ano passado
+
+Hoje: 12/03/2026 | -90 dias: 12/12/2025 | -12 meses: 12/12/2024 | Periodo: 12/12/2024 até 12/03/2025
+
+```sql
+SELECT
+	DISTINCT FV.SEQPRODUTO
+	,min(FV.DTAOPERACAO) AS min
+	, Max(FV.DTAOPERACAO) AS max
+FROM
+	FATO_VENDA FV
+WHERE
+	1 = 1
+	AND FV.NROEMPRESA IN (224)
+	AND FV.SEQPRODUTO = 6044
+	AND FV.DTAOPERACAO BETWEEN ADD_MONTHS(SYSDATE - 90, -12) AND ADD_MONTHS(SYSDATE, -12)
+	GROUP BY fv.seqproduto
 ```
 
-### From dual mes
+|SEQPRODUTO|MIN|MAX|
+|----------|---|---|
+|6044|2024-12-13 00:00:00.000|2025-03-12 00:00:00.000|
+
+### Periodo dinamico ano anterior vs atual
+📌 Filtra dinamicamente a data de 01/01 do ano anterior ao ano atual
 ```sql
 SELECT TO_DATE('01/01/' || (EXTRACT(YEAR FROM SYSDATE) - 1), 'DD/MM/YYYY') AS data_inicial,
        SYSDATE AS data_final
 FROM DUAL;
+```
+Exemplo:
 
+``` sql
+SELECT FV.DTAOPERACAO,
+       FV.NROEMPRESA
+       ROUND(SUM(FV.VVLROPERACAOBRUTO),0) AS VLRTOTAL
+  FROM CONSINCODW.FATO_VENDA            FV
+ WHERE 1 = 1
+   AND FV.DTAOPERACAO BETWEEN TO_DATE('01/01' || (EXTRACT(YEAR FROM SYSDATE) - 1), 'DD/MM/YYYY') -- ANO ANTERIOR COMPLETO
+   AND SYSDATE
+   AND FV.NROEMPRESA in (1)
+ GROUP BY FV.NROEMPRESA, FV.DTAOPERACAO;
 ```
 
-```sql
-SELECT 
-       TO_DATE('01/01' || (EXTRACT(YEAR FROM SYSDATE) - 1), 'DD/MM/YYYY')
-       --AND SYSDATE
-FROM DUAL;
-```
-
+### Mes anterior vs atual dinamico
+📌 Primeiro dia do mes anterior ao atual dinamicamente
 ```sql
 SELECT 
     TRUNC(ADD_MONTHS(SYSDATE, -1), 'MM') AS start_date,
@@ -205,12 +226,15 @@ FROM
     DUAL;
 ```
 
+### Mes anterior corrente
+📌 Corresponde a 30 dias antes da data atual
 ```sql
 SELECT SYSDATE - 30 /*- (365)*/
 FROM DUAL;
 ```
 
 ### Inner join com parte do valor
+📌 
 ```sql
 SELECT A.nome AS nome_a, B.nome AS nome_b
 FROM tabela_A A
@@ -421,3 +445,45 @@ WHERE RN = 1;
 ```sql
 
 ```
+
+---
+
+## Gestão do banco
+
+### Consultar jobs
+📌 Situação: 
+Localizar determina job do banco
+```sql
+SELECT A.JOB, A.NEXT_DATE, A.WHAT, A.* FROM ALL_JOBS A
+WHERE 1=1
+AND A.NEXT_DATE <= '21-nov-2021';
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+## Conceitos
+### Formatar campos
+[Link](HTTP://PGDOCPTBR.SOURCEFORGE.NET/PG80/FUNCTIONS-FORMATTING.HTML)
+
+
+
