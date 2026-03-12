@@ -3,11 +3,10 @@ encryptcontent: true
 password: suasenha123
 ---
 
-# Conhecimento em SQL
 
 ## Conceitos
 ### Formatar campos
-[Formatacao SQL](HTTP://PGDOCPTBR.SOURCEFORGE.NET/PG80/FUNCTIONS-FORMATTING.HTML)
+[Link](HTTP://PGDOCPTBR.SOURCEFORGE.NET/PG80/FUNCTIONS-FORMATTING.HTML)
 
 
 ## Consultas
@@ -45,18 +44,18 @@ SELECT PC.SEQPRODUTO,
  GROUP BY PC.SEQPRODUTO;
 ```
 Resultado
-Antes
+=== "Antes"
 
-|SEQPRODUTO|CODACESSO|
-|----------|---------|
-|82|7898591450020|
-|82|7898279792534|
+    |SEQPRODUTO|CODACESSO|
+    |----------|---------|
+    |82|7898591450020|
+    |82|7898279792534|
 
-Depois
+=== "Depois"
 
-|SEQPRODUTO|CODIGOS|
-|----------|-------|
-|82|7898279792534,7898591450020|
+    |SEQPRODUTO|CODIGOS|
+    |----------|-------|
+    |82|7898279792534,7898591450020|
 
 
 
