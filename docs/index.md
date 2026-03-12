@@ -1,4 +1,4 @@
-# INÍCIO
+# Início
 
 ## 👋 Bem-vindo, eu mesmo 😂
 

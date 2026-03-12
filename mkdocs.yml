@@ -53,6 +53,11 @@ markdown_extensions:
   - pymdownx.details
   - attr_list
   - pymdownx.keys
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+      combine_header_slug: true
+  # - tables
 
 # nav:
 #   - Início: index.md

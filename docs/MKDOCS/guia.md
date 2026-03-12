@@ -4,6 +4,10 @@
 ```md
 [nomedapagina](/mkdocs/mkdocs-guia/)
 ```
+## Referencia subtitulo de uma pagina
+```md
+[Consultar Tabelas](/sql/consultas/#consultar-tabelas)
+```
 
 ## Blocos de codigo
 ``` py
