@@ -1,11 +1,15 @@
 site_name: Portal do Conhecimento
 site_url: https://sitename.example
 
+# tema
 theme:
   name: material
   font:
     text: Roboto
     code: Roboto Mono
+  # logo
+  icon:
+    logo: material/library
   palette:
     # Dark Mode
     - scheme: slate
@@ -22,5 +26,13 @@ theme:
         name: Modo dark
       primary: brown
       accent: deep purple
+
+
+# emojis
+markdown_extensions:
+  - attr_list
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
 
   
