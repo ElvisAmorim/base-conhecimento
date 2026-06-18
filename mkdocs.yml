@@ -3,6 +3,9 @@ site_url: https://sitename.example
 
 theme:
   name: material
+  font:
+    text: Roboto
+    code: Roboto Mono
   palette:
     # Dark Mode
     - scheme: slate
