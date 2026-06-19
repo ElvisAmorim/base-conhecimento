@@ -28,7 +28,7 @@ theme:
       accent: deep purple
   features:
     - content.code.copy
-
+    - navigation.footer # navegação no rodapé
 
 # emojis
 markdown_extensions:
@@ -43,17 +43,21 @@ markdown_extensions:
   - pymdownx.inlinehilite
   - pymdownx.snippets
   - pymdownx.superfences:
-    # diagramas
+      # diagramas
       custom_fences:
         - name: mermaid
           class: mermaid
-          format: !!python/name:pymdownx.superfences.fence_code_format
-  # abas
+          format: !!python/name:pymdownx.superfences.fence_code_format # abas
+
+
   - pymdownx.tabbed:
       alternate_style: true
   # advertencia/atencao
   - admonition
   - pymdownx.details
 
-
-  
+extra:
+  # social:
+  #   - icon: simple/linkedin
+  #     link: https://www.linkedin.com/in/elvis-amorim/
+  copyright: Copyright &copy; 2024 James Willett
