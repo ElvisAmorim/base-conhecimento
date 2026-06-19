@@ -1,5 +1,8 @@
 site_name: Portal do Conhecimento
-site_url: https://sitename.example
+repo_url: https://github.com/ElvisAmorim/base-conhecimento
+repo_name: GitHub
+
+edit_uri: edit/main/docs/
 
 # tema
 theme:
@@ -29,6 +32,11 @@ theme:
   features:
     - content.code.copy
     - navigation.footer # navegação no rodapé
+    # editar pagina
+    - navigation.tabs
+    - search.highlight
+    - content.action.edit
+    - content.action.view
 
 # emojis
 markdown_extensions:
