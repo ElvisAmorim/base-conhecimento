@@ -1,3 +1,31 @@
+## Bem-vindo, eu mesmo 😂
+
+Esse portal tem como objetivo de documentar meu conhecimento, centralizando tudo como um segundo celebro
+
+
+## Conhecendo o portal
+
+As guias sao separadas por tipo de tecnologia
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+---
+---
+---
+
 # Welcome to MkDocs
 
 For full documentation visit [mkdocs.org](https://www.mkdocs.org).

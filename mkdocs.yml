@@ -71,4 +71,9 @@ extra:
     - icon: fontawesome/brands/linkedin
       link: https://www.linkedin.com/in/elvis-amorim/
 
+plugins:
+  - git-revision-date-localized:
+      locale: pt_BR
+      type: timeago
+
 copyright: "Copyright © 2026 Portal do Conhecimento. Todos os direitos reservados."
