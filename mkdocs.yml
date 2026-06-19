@@ -1,6 +1,6 @@
 site_name: Portal do Conhecimento
-repo_url: https://github.com/ElvisAmorim/base-conhecimento
-repo_name: GitHub
+# repo_url: https://github.com/ElvisAmorim/base-conhecimento
+# repo_name: GitHub
 
 edit_uri: edit/main/docs/
 
@@ -33,10 +33,10 @@ theme:
     - content.code.copy
     - navigation.footer # navegação no rodapé
     # editar pagina
-    - navigation.tabs
+    # - navigation.tabs
     - search.highlight
     - content.action.edit
-    - content.action.view
+    # - content.action.view
 
 # emojis
 markdown_extensions:
@@ -64,9 +64,11 @@ markdown_extensions:
   - admonition
   - pymdownx.details
 
-# extra:
-# social:
-#   - icon: simple/linkedin
-#     link: https://www.linkedin.com/in/elvis-amorim/
+extra:
+  # removendo made with mkdocs
+  generator: false
+  social:
+    - icon: fontawesome/brands/linkedin
+      link: https://www.linkedin.com/in/elvis-amorim/
 
-copyright: Copyright &copy; Elvis Amorim
+copyright: "Copyright © 2026 Portal do Conhecimento. Todos os direitos reservados."
