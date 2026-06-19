@@ -15,3 +15,14 @@ For full documentation visit [mkdocs.org](https://www.mkdocs.org).
     docs/
         index.md  # The documentation homepage.
         ...       # Other markdown pages, images and other files.
+
+## Bloco de codigo
+``` py title="add_number.py"
+# Function to add two numbers
+def add_two_numbers(num1, num2):
+    return num1 + num2
+
+# Example usage
+result = add_two_numbers(5, 3)
+print('The sum is:', result)
+```
