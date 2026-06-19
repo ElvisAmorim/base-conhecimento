@@ -42,10 +42,18 @@ markdown_extensions:
       pygments_lang_class: true
   - pymdownx.inlinehilite
   - pymdownx.snippets
-  - pymdownx.superfences
+  - pymdownx.superfences:
+    # diagramas
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
   # abas
   - pymdownx.tabbed:
       alternate_style: true
+  # advertencia/atencao
+  - admonition
+  - pymdownx.details
 
 
   
