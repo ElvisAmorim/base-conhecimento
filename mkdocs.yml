@@ -43,5 +43,9 @@ markdown_extensions:
   - pymdownx.inlinehilite
   - pymdownx.snippets
   - pymdownx.superfences
+  # abas
+  - pymdownx.tabbed:
+      alternate_style: true
+
 
   
