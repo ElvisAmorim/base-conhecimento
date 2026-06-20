@@ -1,113 +1,45 @@
-## Bem-vindo, eu mesmo 😂
+# 🧠 Portal do Conhecimento
 
-Esse portal tem como objetivo de documentar meu conhecimento, centralizando tudo como um segundo celebro
+Minha base pessoal de conhecimento técnico.
 
-
-## Conhecendo o portal
-
-As guias sao separadas por tipo de tecnologia
-
-
-
+Objetivo:
+- Registrar aprendizados
+- Guardar consultas rápidas
+- Salvar soluções encontradas
+- Facilitar reutilização de códigos e comandos
 
 
+## ⚡ Consultas rápidas
+
+Atalhos e informações utilizadas no dia a dia:
+
+- Programação
+- Banco de dados
+- Ferramentas
+- Configurações
 
 
+## 🧠 Aprendizados
+
+Anotações de conceitos aprendidos:
+
+- O que entendi
+- Como funciona
+- Exemplos práticos
 
 
+## ⚠️ Problemas resolvidos
+
+Registro de erros encontrados e soluções aplicadas.
+
+Serve como histórico para evitar pesquisas repetidas.
 
 
+## 🛠 Ferramentas
 
+Conhecimentos sobre ferramentas utilizadas:
 
-
-
-
----
----
----
-
-# Welcome to MkDocs
-
-For full documentation visit [mkdocs.org](https://www.mkdocs.org).
-
-## Commands
-
-* `mkdocs new [dir-name]` - Create a new project.
-* `mkdocs serve` - Start the live-reloading docs server.
-* `mkdocs build` - Build the documentation site.
-* `mkdocs -h` - Print help message and exit.
-
-## Project layout
-
-    mkdocs.yml    # The configuration file.
-    docs/
-        index.md  # The documentation homepage.
-        ...       # Other markdown pages, images and other files.
-
-## Bloco de codigo
-``` py title="add_number.py"
-# Function to add two numbers
-def add_two_numbers(num1, num2):
-    return num1 + num2
-
-# Example usage
-result = add_two_numbers(5, 3)
-print('The sum is:', result)
-```
-
-## Abas
-
-### Generic Content
-
-=== "Plain text"
-
-    This is some plain text
-
-=== "Unordered list"
-
-    * First item
-    * Second item
-    * Third item
-
-=== "Ordered list"
-
-    1. First item
-    2. Second item
-    3. Third item
-
-### Code Blocks in Content Tabs
-
-=== "Python"
-
-    ```py
-    def main():
-        print("Hello world!")
-
-    if __name__ == "__main__":
-        main()
-    ```
-
-=== "JavaScript"
-
-    ```js
-    function main() {
-        console.log("Hello world!");
-    }
-
-    main();
-    ```
-
-## Advertencias
-!!! note "Title of the callout"
-
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla et euismod
-    nulla. Curabitur feugiat, tortor non consequat finibus, justo purus auctor
-    massa, nec semper lorem quam in massa.
-
-Collapsible callout:
-
-??? info "Collapsible callout"
-
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla et euismod
-    nulla. Curabitur feugiat, tortor non consequat finibus, justo purus auctor
-    massa, nec semper lorem quam in massa.
+- Git
+- Linux
+- WordPress
+- Outras ferramentas

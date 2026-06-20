@@ -31,7 +31,7 @@ theme:
       accent: deep purple
   features:
     - content.code.copy
-    - navigation.footer # navegação no rodapé
+    # - navigation.footer # navegação no rodapé
     # editar pagina
     # - navigation.tabs
     - navigation.instant # busca instantania
@@ -65,6 +65,7 @@ markdown_extensions:
   # advertencia/atencao
   - admonition
   - pymdownx.details
+  - pymdownx.superfences
 
 extra:
   # removendo made with mkdocs
