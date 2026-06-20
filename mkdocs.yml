@@ -1,6 +1,6 @@
 site_name: Portal do Conhecimento
-# repo_url: https://github.com/ElvisAmorim/base-conhecimento
-# repo_name: GitHub
+repo_url: https://github.com/ElvisAmorim/base-conhecimento
+repo_name: GitHub
 
 edit_uri: edit/main/docs/
 
@@ -34,6 +34,8 @@ theme:
     - navigation.footer # navegação no rodapé
     # editar pagina
     # - navigation.tabs
+    - navigation.instant # busca instantania
+    - navigation.sections
     - search.highlight
     - content.action.edit
     # - content.action.view
@@ -72,8 +74,9 @@ extra:
       link: https://www.linkedin.com/in/elvis-amorim/
 
 plugins:
-  - git-revision-date-localized:
-      locale: pt_BR
-      type: timeago
+  - search
+  #- git-revision-date-localized:
+   #   locale: pt_BR
+    #  type: timeago
 
-copyright: "Copyright © 2026 Portal do Conhecimento. Todos os direitos reservados."
+copyright: "Portal pessoal de conhecimento"
