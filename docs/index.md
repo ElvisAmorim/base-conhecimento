@@ -1,45 +1,60 @@
 # 🧠 Portal do Conhecimento
 
-Minha base pessoal de conhecimento técnico.
+Base pessoal para registrar, organizar e consultar conhecimentos técnicos.
 
-Objetivo:
-- Registrar aprendizados
-- Guardar consultas rápidas
-- Salvar soluções encontradas
-- Facilitar reutilização de códigos e comandos
+Aqui ficam anotações, comandos, códigos e soluções que podem ser reutilizados no dia a dia.
 
 
-## ⚡ Consultas rápidas
+---
 
-Atalhos e informações utilizadas no dia a dia:
+## ⚡ Acesso rápido
 
-- Programação
-- Banco de dados
-- Ferramentas
-- Configurações
+### 💻 Programação
 
-
-## 🧠 Aprendizados
-
-Anotações de conceitos aprendidos:
-
-- O que entendi
-- Como funciona
-- Exemplos práticos
+- Python
+- JavaScript
+- SQL
+- PHP
 
 
-## ⚠️ Problemas resolvidos
-
-Registro de erros encontrados e soluções aplicadas.
-
-Serve como histórico para evitar pesquisas repetidas.
-
-
-## 🛠 Ferramentas
-
-Conhecimentos sobre ferramentas utilizadas:
+### 🛠 Ferramentas
 
 - Git
 - Linux
 - WordPress
-- Outras ferramentas
+- Excel
+
+
+### 🗃 Banco de dados
+
+- Consultas SQL
+- Scripts
+- Otimizações
+
+
+---
+
+## 📚 Organização
+
+Cada área possui:
+
+📝 **Consultas**
+> Comandos, códigos e informações de uso frequente.
+
+🧠 **Aprendizados**
+> Conceitos e entendimentos adquiridos.
+
+⚠️ **Problemas**
+> Erros encontrados e soluções aplicadas.
+
+
+---
+
+## 🎯 Objetivo
+
+Manter uma biblioteca pessoal de conhecimento:
+
+- Encontrar soluções rapidamente
+- Evitar repetir pesquisas
+- Registrar descobertas
+- Reaproveitar códigos e comandos
