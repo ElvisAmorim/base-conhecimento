@@ -1,4 +1,3 @@
-# **Formulas de Excel**
 Aqui estao as formulas que aprendi a usar e que foram necessarias para alguma tarefa
 
 ## Dia da semana
