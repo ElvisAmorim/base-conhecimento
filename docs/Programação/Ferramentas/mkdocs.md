@@ -1,4 +1,4 @@
-# Guia de uso Material MkDocs
+# Material MkDocs
 
 ## Iniciar projeto
 ```
