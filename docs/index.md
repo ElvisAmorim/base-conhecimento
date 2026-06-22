@@ -15,6 +15,6 @@ Manter uma biblioteca pessoal de conhecimento:
   
 ---
 
-## Favoritos
+## ⭐ Favoritos
 
 ---
