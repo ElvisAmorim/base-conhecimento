@@ -30,7 +30,7 @@ Na primeira coloque a formula
 
 ```
 
-## Converter horas em minutos
+## ~Converter horas em minutos~
 ```
 =(A1*24)
 ```
