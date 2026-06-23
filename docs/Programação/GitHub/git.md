@@ -23,3 +23,9 @@ No GitHub > Repositorio > Settings(config) > Secao Access > Collaborators > Add 
 !!! info "Nota"
     A pessoa receberá um convite por e-mail ou uma notificação dentro do GitHub. Ela precisa estar logada na conta dela e aceitar o convite para que o acesso seja efetivado
 
+
+## Multiplas contas do github
+Ao acessar uma pasta local para fazer o pul rode o comando abaixo:
+```
+git config core.sshCommand "ssh -i ~/.ssh/elvis.amorim -o IdentitiesOnly=yes -F /dev/null"
+```
